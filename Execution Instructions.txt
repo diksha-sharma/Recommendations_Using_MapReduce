@@ -1,0 +1,64 @@
+Create following directories and place files as indicated
+
+hdfs dfs -mkdir -p /dxs134530/input/user
+hdfs dfs -mkdir -p /dxs134530/input/friends
+
+hdfs dfs -put soc-LiveJournal1Adj.txt /dxs134530/input/friends
+hdfs dfs -put userdata.txt /dxs134530/input/user
+
+//******************************************************************************
+Q1:
+
+hdfs dfs -mkdir -p /dxs134530/intoutput11
+hdfs dfs -mkdir -p /dxs134530/output11
+
+hdfs dfs -rm -r /dxs134530/intoutput11
+hdfs dfs -rm -r /dxs134530/output11
+hadoop jar SocialNetwork.jar socialnetwork.Q1 "/dxs134530/input/friends" "/dxs134530/intoutput11" "/dxs134530/output11"
+
+hdfs dfs -ls hdfs://cshadoop1/dxs134530/output11
+hdfs dfs -cat hdfs://cshadoop1/dxs134530/output11/part-00000| wc
+hdfs dfs -cat hdfs://cshadoop1/dxs134530/output11/part-r-00000
+
+//******************************************************************************
+Q2:
+
+hdfs dfs -mkdir -p /dxs134530/intoutput21
+hdfs dfs -mkdir -p /dxs134530/output21
+
+hdfs dfs -rm -r /dxs134530/intoutput21
+hdfs dfs -rm -r /dxs134530/output21
+hadoop jar SocialNetwork.jar socialnetwork.Q2 "/dxs134530/input/friends" "/dxs134530/intoutput21" "/dxs134530/output21" "3" "25"
+
+hdfs dfs -ls hdfs://cshadoop1/dxs134530/output21
+hdfs dfs -cat hdfs://cshadoop1/dxs134530/output21/part-r-00000 | wc
+hdfs dfs -cat hdfs://cshadoop1/dxs134530/output21/part-r-00000
+
+//******************************************************************************
+Q3:
+
+hdfs dfs -mkdir -p /dxs134530/intoutput31
+hdfs dfs -mkdir -p /dxs134530/output31
+
+hdfs dfs -rm -r /dxs134530/intoutput31
+hdfs dfs -rm -r /dxs134530/output31
+hadoop jar SocialNetwork.jar socialnetwork.Q3 "/dxs134530/input/friends" "/dxs134530/input/user" "/dxs134530/intoutput31" "/dxs134530/output31" "3" "25"
+
+hdfs dfs -ls hdfs://cshadoop1/dxs134530/output31
+hdfs dfs -cat hdfs://cshadoop1/dxs134530/output31/part-r-00000 | wc
+hdfs dfs -cat hdfs://cshadoop1/dxs134530/output31/part-r-00000
+
+//******************************************************************************
+Q4:
+
+hdfs dfs -mkdir -p /dxs134530/intoutput41
+hdfs dfs -mkdir -p /dxs134530/output41
+
+hdfs dfs -rm -r /dxs134530/intoutput41
+hdfs dfs -rm -r /dxs134530/output41
+hadoop jar SocialNetwork.jar socialnetwork.Q4 "/dxs134530/input/user" "/dxs134530/input/friends" "/dxs134530/intoutput41" "/dxs134530/output41"
+
+hdfs dfs -ls hdfs://cshadoop1/dxs134530/output41
+hdfs dfs -cat hdfs://cshadoop1/dxs134530/output41/part-r-00000 | wc
+hdfs dfs -cat hdfs://cshadoop1/dxs134530/output41/part-r-00000
+
